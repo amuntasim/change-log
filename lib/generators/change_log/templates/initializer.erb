@@ -1,0 +1,34 @@
+# encoding: utf-8
+
+# ChangeLog config file. Generated on <%= DateTime.now.to_s(:long) %>
+# See github.com/amuntasim/change_log for more informations
+
+  #ChangeLog::ApplicationController.authenticator = proc {
+  #  authenticate_or_request_with_http_basic('ChangeLog') do |user_name, password|
+  #    user_name == 'change_log' && password == 'password'
+  #  end
+  #}
+
+ChangeLog.config do |config|
+<% if table_prefix.present? -%>
+    config.table_prefix = '<%= table_prefix %>'
+<% else -%>
+    #config.table_prefix = ''
+<% end -%>
+
+   config.orm = '<%= @orm %>'
+
+   #config.layout = 'change_log/application'
+
+   #config.commit_prefix = '~~~'
+
+   #config.tag_prefix = '~~'
+end  if defined? ChangeLog
+
+<% if @table_prefix.present? %>
+<% if @orm == 'mongoid' -%>
+ChangeLog::MongoidModel.store_in collection: :'<%= [@table_prefix, 'change_logs'].compact.join('_') %>'
+<% else %>
+ChangeLog::ActiverecordModel.table_name = '<%= [@table_prefix, 'change_logs'].compact.join('_') %>'
+<% end -%>
+<% end %>

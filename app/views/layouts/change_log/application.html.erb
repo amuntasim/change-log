@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ChangeLog</title>
+  <%= stylesheet_link_tag "change_log/application", :media => "all" %>
+  <%= javascript_include_tag "change_log/application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="markdown-body">
+  <%= yield %>
+</div>
+</body>
+</html>

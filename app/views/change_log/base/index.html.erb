@@ -1,0 +1,5 @@
+  <% @items.each do |item| %>
+      <h2> <%= item.version %> {<%= item.time %>}</h2>
+      <%= md item.message %>
+      <br/>
+  <% end %>
