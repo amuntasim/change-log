@@ -5,13 +5,13 @@ require "change_log/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name = "change_log"
+  s.name = "change-log"
   s.version = ChangeLog::VERSION
-  s.authors = ["TODO: Your name"]
-  s.email = ["TODO: Your email"]
-  s.homepage = "TODO"
-  s.summary = "TODO: Summary of ChangeLog."
-  s.description = "TODO: Description of ChangeLog."
+  s.authors = ["Muntasim Ahmed"]
+  s.email = ["ahmed2tul@gmail.com"]
+  s.homepage = "https://github.com/amuntasim/change-log"
+  s.summary = "mountable engine that parse git commits and produce github like change log"
+  s.description = "mountable engine that parse git commits and produce github like change log"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
