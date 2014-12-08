@@ -45,13 +45,13 @@ You will have output like:
    - feature three implemented
 
 <p>bug:</p>
-    - bug 1 resolved
-    - bug 2 resolved
-    - bug 3 resolved
+   - bug 1 resolved
+   - bug 2 resolved
+   - bug 3 resolved
 
 <p>api:</p>
-    + api foo implemented
-    + api bar modified
+   + api foo implemented
+   + api bar modified
 
 The commit message is markdown enabled
 ## Installation & Setup
