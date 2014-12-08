@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    change-log (0.0.1)
+    change-log (0.0.2)
       git (~> 1.2.6)
       kramdown (>= 1.0.0)
       orm_adapter (~> 0.1)

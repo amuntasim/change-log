@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary = "mountable engine that parse git commits and produce github like change log"
   s.description = "mountable engine that parse git commits and produce github like change log"
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "git", "~> 1.2.6"
