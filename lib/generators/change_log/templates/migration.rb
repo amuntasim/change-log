@@ -5,12 +5,10 @@ class CreateChangeLogTables < ActiveRecord::Migration
       t.datetime   :time
       t.string   :message, limit: 1000
       t.string   :author, limit: 50
+      t.string :tags, limit: 100
       t.datetime :created_at
       t.datetime :updated_at
     end
-
-    add_index :<%= [table_prefix, 'change_logs'].compact.join('_') %>, :category
-
   end
 
   def self.down
