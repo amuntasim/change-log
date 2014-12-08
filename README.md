@@ -6,6 +6,8 @@ ChangeLog is a Rails engine designed to facilitate parsing change log from git c
 
 ChangeLog is compatible with Rails  > 3.1
 
+ChangeLog works with activerecord and mongoid
+
 ## Installation & Setup
 
 To install add the following to your Gemfile:
