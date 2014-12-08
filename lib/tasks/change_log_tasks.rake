@@ -5,6 +5,7 @@ namespace :change_log do
   desc "Copying settings, models etc."
   task :setup => :environment do
     system 'rails g change_log:install'
+    Rake::Task['db:migrate'].invoke
   end
 
   desc "parse release notes and put into db"
