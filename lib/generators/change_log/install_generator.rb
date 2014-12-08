@@ -32,7 +32,7 @@ module ChangeLog
         @table_prefix = ask_for("Do you want to add #{_table} prefix?", nil, table_prefix)
         template "initializer.erb", "config/initializers/change_log.rb"
       else
-        display "You already have a config file. You're updating, heh? I'm generating a new 'change_log.rb.example' that you can review."
+        display "You already have a config file. generating a new 'change_log.rb.example' that you can review."
         template "initializer.erb", "config/initializers/change_log.rb.example"
       end
 
