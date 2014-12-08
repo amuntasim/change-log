@@ -9,7 +9,7 @@ ChangeLog is compatible with Rails  > 3.1
 ChangeLog works with `activerecord` and `mongoid`
 
 ##Usage
-ChangeLog does not consider all the commit messages but with a special prefix. (`~~~` is default but you can override in the `change_log.rb` config file)
+ChangeLog does not consider all the commit messages but with a special prefix. (`~~~` is default but you can override with other in the `change_log.rb` config file )
 
 You can tag your messages. Like you may have 3/4 tags in each build.
 
