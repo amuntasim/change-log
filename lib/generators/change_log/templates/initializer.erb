@@ -28,10 +28,8 @@ ChangeLog.config do |config|
 
 end  if defined? ChangeLog
 
-<% if @table_prefix.present? %>
 <% if @orm == 'mongoid' -%>
 ChangeLog::MongoidModel.store_in collection: :'<%= [@table_prefix, 'change_logs'].compact.join('_') %>'
 <% else %>
 ChangeLog::ActiverecordModel.table_name = '<%= [@table_prefix, 'change_logs'].compact.join('_') %>'
 <% end -%>
-<% end %>

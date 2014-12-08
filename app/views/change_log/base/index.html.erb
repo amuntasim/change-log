@@ -1,4 +1,4 @@
-<%# cache @change_log_model.last_release do %>
+<% cache @change_log_model.last_release do %>
     <% if ChangeLog.config.tag_filter_enabled %>
         <fieldset>
           <legend>Tags:</legend>
@@ -18,4 +18,9 @@
           <%= md item.message %>
         </div>
     <% end %>
-<% #end %>
+    <% if @items.count == 0 %>
+        Please run <code>rake change_log:update_log</code> to get change logs here. <br/>
+        For more information please visit: <a href="https://github.com/amuntasim/change-log">ChangeLog Wiki</a>
+
+    <% end %>
+<% end %>
