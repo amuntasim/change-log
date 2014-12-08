@@ -29,10 +29,10 @@ and follow the guide !
 If you want to authenticate users who can access ChangeLog, you need to provide <tt>ChangeLog::ApplicationController.authenticator</tt> proc. For example :
 
 ```ruby
-  # config/initializers/tolk.rb
+  # config/initializers/change_log.rb
   ChangeLog::ApplicationController.authenticator = proc {
     authenticate_or_request_with_http_basic do |user_name, password|
-      user_name == 'change-log' && password == 'transpass'
+      user_name == 'change-log' && password == 'passme'
     end
   }
 ```
