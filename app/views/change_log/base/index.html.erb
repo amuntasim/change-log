@@ -1,5 +1,21 @@
-  <% @items.each do |item| %>
-      <h2> <%= item.version %> {<%= l item.time.to_date %>}</h2>
-      <%= md item.message %>
-      <br/>
-  <% end %>
+<%# cache @change_log_model.last_release do %>
+    <% if ChangeLog.config.tag_filter_enabled %>
+        <fieldset>
+          <legend>Tags:</legend>
+          <ul class="tag-list">
+            <% @items.collect(&:tags).join(',').split(',').uniq.each do |tag| %>
+                <li>
+                  <%= check_box_tag '_', tag, true %>  <%= tag %>
+                </li>
+            <% end %>
+          </ul>
+        </fieldset>
+    <% end %>
+
+    <% @items.each do |item| %>
+        <div class="version-wrapper">
+          <h2> <%= item.version %> {<%= l item.time.to_date %>}</h2>
+          <%= md item.message %>
+        </div>
+    <% end %>
+<% #end %>

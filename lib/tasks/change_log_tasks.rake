@@ -9,23 +9,21 @@ namespace :change_log do
 
   desc "parse release notes and put into db"
   task :update_log , [:repo_path] => :environment do |t, args|
+    require 'git'
     repo_path = args.repo_path || Rails.root
-    repo = Rugged::Repository.new("#{repo_path}/.git/")
-    walker = Rugged::Walker.new(repo)
-    walker.push(repo.head.target_id)
-    walker.sorting(Rugged::SORT_DATE) # optional
+    repo = Git.open(repo_path)
     last_release = base_model.last_release
     if last_release
-      records = walker.select { |c| c.time > last_release.time && c.message =~ /#{ChangeLog.config.commit_prefix}/ }
+      records = repo.log.since(last_release.time).select { |c|  c.message =~ /#{ChangeLog.config.commit_prefix}/ }
     else
-      records = walker.select { |c| c.message =~ /#{ChangeLog.config.commit_prefix}/ }
+      records = repo.log.select { |c| c.message =~ /#{ChangeLog.config.commit_prefix}/ }
     end
     records.each do |record|
-      parse_ans_store_commit_message(record, last_release)
+      parse_and_store_commit_message(record, last_release)
     end
   end
 
-  def parse_ans_store_commit_message(record, last_release)
+  def parse_and_store_commit_message(record, last_release)
 #     messages = <<-eos
 # ###
 # ##api
@@ -46,18 +44,23 @@ namespace :change_log do
     formatted_message = []
     lines.each do |line|
       if tag = parse_tag(line)
+        formatted_message << "</div>"  if o_tag.any?
+        formatted_message << "<div class='tag-start #{tag}'>"
+
         o_tag << tag
-        formatted_message << "<p>#{tag}</p>"
+        formatted_message << "<p>#{tag}:</p>"
       else
         formatted_message << line
       end
     end
-    base_model.create(version: version, author: record.author, message: formatted_message.join(''), time: record.time, tags: o_tag.join(','))
+    formatted_message << "\n </div>"
+
+    base_model.create(version: version, author: record.author, message: formatted_message.join(''), time: record.date, tags: o_tag.join(','))
 #base_model.create(version: version, author: 'record.author', message: formatted_message.join(''), time: 'record.time', tags: o_tag.join(','))
   end
 
   def parse_tag(line)
-    line.gsub(ChangeLog.config.tag_prefix, '').strip if line =~ /#{ChangeLog.config.tag_prefix}/
+    line.gsub(/#{ChangeLog.config.tag_prefix}|\:/, '').strip if line =~ /#{ChangeLog.config.tag_prefix}/
   end
 
   def version_number(line)

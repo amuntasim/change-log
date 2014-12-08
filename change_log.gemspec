@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "rugged", "~> 0.16"
+  s.add_dependency "git", "~> 1.2.6"
   s.add_dependency("orm_adapter", "~> 0.1")
   s.add_dependency("kramdown", ">= 1.0.0")
   s.add_dependency("railties", ">= 3.1", "< 5")

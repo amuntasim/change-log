@@ -11,5 +11,29 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery.min
-//= require jquery_ujs
-//= require_tree .
+//= require_self
+
+(function ($) {
+    $(document).on('click', 'ul.tag-list input[type=checkbox]', function () {
+        $('.version-wrapper').show();
+
+        $('ul.tag-list input[type=checkbox]:not(:checked)').each(function () {
+            var tagDiv = $('.tag-start.' + $(this).val());
+            tagDiv.hide();
+
+        });
+
+        $('ul.tag-list input[type=checkbox]:checked').each(function () {
+            var tagDiv = $('.tag-start.' + $(this).val());
+            tagDiv.show();
+            if (tagDiv.parent('.version-wrapper').find('div.tag-start:visible').length > 0)
+                tagDiv.parent('.version-wrapper').show()
+        });
+
+        $('.version-wrapper').each(function () {
+            if ($(this).find('div.tag-start:visible').length <= 0)
+                $(this).hide()
+        });
+
+    })
+})(jQuery);

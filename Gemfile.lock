@@ -2,10 +2,10 @@ PATH
   remote: .
   specs:
     change_log (0.0.1)
+      git (~> 1.2.6)
       kramdown (>= 1.0.0)
       orm_adapter (~> 0.1)
       railties (>= 3.1, < 5)
-      rugged (~> 0.16)
 
 GEM
   remote: https://rubygems.org/
@@ -28,6 +28,7 @@ GEM
       multi_json (~> 1.0)
     builder (3.0.4)
     erubis (2.7.0)
+    git (1.2.8)
     hike (1.2.3)
     i18n (0.6.11)
     journey (1.0.4)
@@ -55,7 +56,6 @@ GEM
     rake (10.3.2)
     rdoc (3.12.2)
       json (~> 1.4)
-    rugged (0.21.2)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)

@@ -297,3 +297,13 @@
 .markdown-body pre code:before, .markdown-body pre code:after, .markdown-body pre tt:before, .markdown-body pre tt:after {
     content: normal;
 }
+
+.markdown-body ul.tag-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.markdown-body ul.tag-list li{
+    display: inline;
+    padding: 7px 15px;
+}

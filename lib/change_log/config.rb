@@ -16,11 +16,14 @@ module ChangeLog
 
       attr_accessor :tag_prefix
 
+      attr_accessor :tag_filter_enabled
+
       def reset
         @layout = 'change_log/application'
         @table_prefix = nil
         @commit_prefix = '~~~'
         @tag_prefix = '~~'
+        @tag_filter_enabled = true
       end
     end
 

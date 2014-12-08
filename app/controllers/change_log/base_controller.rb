@@ -8,9 +8,9 @@ module ChangeLog
 
     def _model
       if ChangeLog.config.orm == 'activerecord'
-        ChangeLog::ActiverecordModel
+        @change_log_model = ChangeLog::ActiverecordModel
       else
-        ChangeLog::MongoidModel
+        @change_log_model = ChangeLog::MongoidModel
       end
     end
   end
