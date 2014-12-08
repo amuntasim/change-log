@@ -1,4 +1,4 @@
-class CreateTolkTables < ActiveRecord::Migration
+class CreateChangeLogTables < ActiveRecord::Migration
   def self.up
     create_table :<%= [table_prefix, 'change_logs'].compact.join('_') %> do |t|
       t.string   :version, limit: 20
