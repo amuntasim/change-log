@@ -2,7 +2,6 @@ require 'active_support/core_ext/class/attribute_accessors'
 
 module ChangeLog
   module Config
-
     class << self
       # Table prefix to avoid collision
       attr_accessor :table_prefix

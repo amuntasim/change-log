@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    change-log (0.0.1)
+    change_log (0.0.1)
       kramdown (>= 1.0.0)
       orm_adapter (~> 0.1)
       railties (>= 3.1, < 5)
@@ -69,6 +69,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  change-log!
+  change_log!
   jquery-rails
   sqlite3

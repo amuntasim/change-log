@@ -1,5 +1,5 @@
 module ChangeLog
-  class ApplicationController < ActionController::Base
+  class ApplicationController < ::ApplicationController
 
     cattr_accessor :authenticator
 

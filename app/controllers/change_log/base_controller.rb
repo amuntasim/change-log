@@ -1,5 +1,5 @@
 module ChangeLog
-  class BaseController < ::ApplicationController
+  class BaseController < ChangeLog::ApplicationController
     layout ChangeLog.config.layout
 
     def index
