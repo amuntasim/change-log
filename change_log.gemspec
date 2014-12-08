@@ -5,7 +5,7 @@ require "change_log/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name = "change_log"
+  s.name = "change-log"
   s.version = ChangeLog::VERSION
   s.authors = ["Muntasim Ahmed"]
   s.email = ["ahmed2tul@gmail.com"]
