@@ -13,7 +13,7 @@ namespace :change_log do
     require 'git'
     repo_path = args.repo_path || Rails.root
     repo = Git.open(repo_path)
-    last_release = base_model.last_release
+    last_release = ChangeLog::Base.last_release
     if last_release
       records = repo.log.since(last_release.time).select { |c|  c.message =~ /#{ChangeLog.config.commit_prefix}/ }
     else
@@ -56,8 +56,8 @@ namespace :change_log do
     end
     formatted_message << "\n </div>"
 
-    base_model.create(version: version, author: record.author, message: formatted_message.join(''), time: record.date, tags: o_tag.join(','))
-#base_model.create(version: version, author: 'record.author', message: formatted_message.join(''), time: 'record.time', tags: o_tag.join(','))
+    ChangeLog::Base.create(version: version, author: record.author, message: formatted_message.join(''), time: record.date, tags: o_tag.join(','))
+#ChangeLog::Base.create(version: version, author: 'record.author', message: formatted_message.join(''), time: 'record.time', tags: o_tag.join(','))
   end
 
   def parse_tag(line)
@@ -69,21 +69,13 @@ namespace :change_log do
     n = t_release.split('.').join('').to_i
     if n > 0
       t_release
-    elsif  last_release = base_model.last_release
+    elsif  last_release = ChangeLog::Base.last_release
       t_release_a = last_release.version.split('.')
       last_number = t_release_a.pop
       t_release_a << last_number.to_i + 1
       t_release_a.join('.')
     else
       '0.0.1'
-    end
-  end
-
-  def base_model
-    if ChangeLog.config.orm == 'activerecord'
-      ChangeLog::ActiverecordModel
-    else
-      ChangeLog::MongoidModel
     end
   end
 end

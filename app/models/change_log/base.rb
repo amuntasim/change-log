@@ -1,0 +1,1 @@
+require "change_log/#{ChangeLog.config.orm}_model"

@@ -1,5 +1,5 @@
 module ChangeLog
-  class ActiverecordModel < ActiveRecord::Base
+  class Base < ActiveRecord::Base
 
     def self.fetch(options)
       self.order('time desc')
