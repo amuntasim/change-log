@@ -59,7 +59,7 @@ The commit message is markdown enabled
 To install add the following to your Gemfile:
 
 ```ruby
-  gem 'change-log'
+  gem 'change-log', '~>0.0.5'
 ```
 
 To setup just run:
