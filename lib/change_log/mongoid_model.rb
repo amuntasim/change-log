@@ -1,5 +1,5 @@
 module ChangeLog
-  class MongoidModel
+  class Base
     include Mongoid::Document
     include Mongoid::Timestamps
 
