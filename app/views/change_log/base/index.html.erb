@@ -1,4 +1,4 @@
-<% cache @change_log_model.last_release do %>
+<% cache ChangeLog::Base.last_release do %>
     <% if ChangeLog.config.tag_filter_enabled %>
         <fieldset>
           <legend>Tags:</legend>
